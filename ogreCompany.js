@@ -37,10 +37,7 @@ var ogreCompany = {
 		newOgre.setAttribute('class', 'ogre');
 
 		//Give ourselves a label to identify the Ogre's type
-		var ogreLabel = newElm('span');
-		ogreLabel.id = ogreId+'_label';
-		ogreLabel.appendChild(textNode(ogreTypes[type].name));
-		newOgre.appendChild(ogreLabel);
+		newOgre.appendChild(this._makeLabel(ogreId+'_label', ogreTypes[type].name, 'ogreTypeLabel'));
 
 		//Give the player the ability to name their Ogre
 		var ogreName = newElm('input');
@@ -58,11 +55,14 @@ var ogreCompany = {
 			weapDiv.id = ogreId+'_'+weapType+'_div';
 
 			//Label for the weapon's name
-			weapDiv.appendChild(this._makeWeapLabel(ogreId+'_'+weapType+'_name', weap.stats.name));
+			weapDiv.appendChild(this._makeWeapLabel(ogreId, weapType, 'name', weap.stats.name));
 			//Make labels for Atk, Rng, and Def
-			weapDiv.appendChild(this._makeWeapLabel(ogreId+'_'+weapType+'_atk', 'Atk: '+weap.stats.atk));
-			weapDiv.appendChild(this._makeWeapLabel(ogreId+'_'+weapType+'_rng', 'Rng: '+weap.stats.rng));
-			weapDiv.appendChild(this._makeWeapLabel(ogreId+'_'+weapType+'_def', 'Def: '+weap.stats.def));
+			weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'atk', 'Atk: '+weap.stats.atk));
+			weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'rng', 'Rng: '+weap.stats.rng));
+			weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'def', 'Def: '+weap.stats.def));
+
+			//Now make checkboxes for each gun
+			weapDiv.appendChild(this._makeWeapBoxes(ogreId, weapType, weap.count));
 
 			newOgre.appendChild(weapDiv);
 		}
@@ -70,13 +70,46 @@ var ogreCompany = {
 		document.body.appendChild(newOgre);
 	},
 
-	_makeWeapLabel : function(id, val) {
-		var weapLabel = newElm('span');
-		weapLabel.id = id;
-		weapLabel.setAttribute('class', 'ogreWeaponAttribute');
-		weapLabel.appendChild(textNode(val));
+	_makeLabel : function(id, val, style) {
+		var label = newElm('span');
+		label.id = id
+		label.setAttribute('class', style);
+		label.appendChild(textNode(val));
 
-		return weapLabel;
+		return label;
+	},
+
+	_makeWeapLabel : function(ogreId, weapType, label, val) {
+		var id = ogreId+'_'+weapType+'_'+label;
+		return this._makeLabel(id, val, 'ogreWeaponLabel');
+	},
+
+	_makeWeapAttrLabel : function(ogreId, weapType, label, val) {
+		var id = ogreId+'_'+weapType+'_'+label;
+		return this._makeLabel(id, val, 'ogreWeaponAttributeLabel');
+	},
+
+	_makeWeapBoxes : function(ogreId, weapType, count) {
+		var container = newElm('div');
+		container.id = ogreId+'_'+weapType+'_count';
+
+		var subContainer;
+
+		for(var i = 0; i < count; i++)
+		{
+			if(0 == i%5)
+			{
+				subContainer = newElm('div');
+				subContainer.setAttribute('class', 'ogreWeaponBoxSubContainer');
+				container.appendChild(subContainer);
+			}
+			var box = newElm('input');
+			box.setAttribute('type', 'checkbox');
+			box.id = container.id+'_'+i;
+			subContainer.appendChild(box);
+		}
+
+		return container;
 	}
 }
 
