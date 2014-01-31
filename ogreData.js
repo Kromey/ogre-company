@@ -1,27 +1,27 @@
 var ogreArmaments = {
 	"mb":{
 		"name":"Main Battery",
-		"attack":4,
-		"range":3,
-		"defense":4
+		"atk":4,
+		"rng":3,
+		"def":4
 	},
 	"sb":{
 		"name":"Secondary Battery",
-		"attack":3,
-		"range":2,
-		"defense":3
+		"atk":3,
+		"rng":2,
+		"def":3
 	},
 	"msl":{
 		"name":"Missiles",
-		"attack":6,
-		"range":5,
-		"defense":3
+		"atk":6,
+		"rng":5,
+		"def":3
 	},
 	"ap":{
 		"name":"Antipersonnel",
-		"attack":1,
-		"range":1,
-		"defense":1
+		"atk":1,
+		"rng":1,
+		"def":1
 	}
 }
 
@@ -37,19 +37,19 @@ var ogreTypes =
 		},
 		"armament":{
 			"mb":{
-				"type":ogreArmaments.mb,
+				"stats":ogreArmaments.mb,
 				"count":1
 			},
 			"sb":{
-				"type":ogreArmaments.sb,
+				"stats":ogreArmaments.sb,
 				"count":4
 			},
 			"msl":{
-				"type":ogreArmaments.msl,
+				"stats":ogreArmaments.msl,
 				"count":2
 			},
 			"ap":{
-				"type":ogreArmaments.msl,
+				"stats":ogreArmaments.ap,
 				"count":8
 			}
 		}
@@ -64,19 +64,19 @@ var ogreTypes =
 		},
 		"armament":{
 			"mb":{
-				"type":ogreArmaments.mb,
+				"stats":ogreArmaments.mb,
 				"count":2
 			},
 			"sb":{
-				"type":ogreArmaments.sb,
+				"stats":ogreArmaments.sb,
 				"count":6
 			},
 			"msl":{
-				"type":ogreArmaments.msl,
+				"stats":ogreArmaments.msl,
 				"count":6
 			},
 			"ap":{
-				"type":ogreArmaments.msl,
+				"stats":ogreArmaments.ap,
 				"count":12
 			}
 		}
