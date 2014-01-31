@@ -1,15 +1,15 @@
 var ogreCompany = {
 	init : function() {
-		var newOgre = document.createElement('div');
+		var newOgre = newElm('div');
 		newOgre.id = 'newOgreDiv';
-		newOgre.appendChild(document.createTextNode("Choose an Ogre:"));
+		newOgre.appendChild(textNode("Choose an Ogre:"));
 
 		for(var type in ogreTypes)
 		{
-			var newOgreType = document.createElement('button');
+			var newOgreType = newElm('button');
 			newOgreType.id = 'new_'+type;
 			newOgreType.value = type;
-			newOgreType.appendChild(document.createTextNode(ogreTypes[type].name));
+			newOgreType.appendChild(textNode(ogreTypes[type].name));
 
 			newOgre.appendChild(newOgreType);
 		}
