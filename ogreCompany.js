@@ -43,6 +43,7 @@ var ogreCompany = {
 		var ogreName = newElm('input');
 		ogreName.id = ogreId+'_name';
 		ogreName.setAttribute('type', 'text');
+		ogreName.setAttribute('class', 'ogreName');
 		ogreName.value = ogreTypes[type].name;
 		newOgre.appendChild(ogreName);
 
@@ -125,12 +126,13 @@ var ogreCompany = {
 		var treadContainer = newElm('div');
 		treadContainer.id = ogreId+'_treads';
 		treadContainer.appendChild(this._makeLabel(ogreId+'_treads_label', treads+' Tread Units', 'ogreTreadsLabel'));
+		treadContainer.appendChild(this._makeLabel(ogreId+'_treads_base', 'Move starts at '+speed, 'ogreBaseSpeedLabel'));
 		var subContainer;
 
 		for(var i = speed; i > 0; i--)
 		{
 			var speedContainer = newElm('div');
-			speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+i, i, 'ogreSpeedLabel'));
+			speedContainer.setAttribute('class', 'ogreSpeedContainer');
 			for(var j = 0; j < treadInc; j++)
 			{
 				if(0 == j%5)
@@ -145,6 +147,7 @@ var ogreCompany = {
 				box.id = treadContainer.id+'_'+j;
 				subContainer.appendChild(box);
 			}
+			speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+i, i-1, 'ogreSpeedLabel'));
 			treadContainer.appendChild(speedContainer);
 		}
 
