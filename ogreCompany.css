@@ -1,0 +1,10 @@
+#ogreOdds
+{
+	display: float;
+	float: right;
+	text-align: right;
+}
+#ogreOdds input
+{
+	width: 2em;
+}
