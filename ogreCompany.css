@@ -1,10 +1,101 @@
+body
+{
+}
+
 #ogreOdds
 {
 	display: float;
 	float: right;
 	text-align: right;
+	padding: 0.25em;
+	margin: 0.1em;
+	border: 1px solid black;
+	background-color: #D6AD33;
 }
 #ogreOdds input
 {
 	width: 2em;
+	background-color: #E2C670;
+}
+
+#newOgreDiv
+{
+	display: float;
+	float: left;
+	text-align: center;
+	padding: 0.2em;
+	margin: 0.1em;
+	border: 1px solid black;
+	background-color: #E6E6E6;
+}
+#newOgreDiv button
+{
+	width: 5em;
+	background-color: #B8B8B8;
+}
+
+.ogre
+{
+	display: float;
+	float: left;
+	width: 250px;
+	padding: 2px;
+	margin: 1px;
+	border: 2px dotted black;
+	background-color: #E6E6E6;
+}
+
+.ogreName
+{
+	background-color: #BFBFBF;
+	display: float;
+	float: right;
+}
+
+.ogreTypeLabel
+{
+	font-weight: bold;
+	color: #A30000;
+	font-size: 1.5em;
+}
+
+.ogreWeaponLabel, .ogreTreadsLabel
+{
+	font-weight: bold;
+	font-size: 1.1em;
+	color: #A30000;
+}
+
+.ogreWeaponLabel
+{
+	display: block;
+}
+
+.ogreWeaponAttributeLabel, .ogreBaseSpeedLabel
+{
+	font-style: italic;
+	font-size: 0.8em;
+	margin-left: 5px;
+}
+
+.ogreSpeedLabel
+{
+	display: float;
+	float: right;
+	margin-right: 5px;
+}
+
+.ogreSpeedContainer
+{
+	clear: both;
+}
+
+.ogreWeaponBoxSubContainer, .ogreTreadSubContainer
+{
+	display: inline-block;
+	margin: 1px 3px;
+}
+.ogreWeaponBox, .ogreTreadBox
+{
+	margin: 0px;
 }
