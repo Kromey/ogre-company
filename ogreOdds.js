@@ -4,11 +4,15 @@ var ogreOdds = {
 		attack.id = target+'_atk';
 		attack.setAttribute('type', 'text');
 		attack.onchange = function(){ogreOdds.calculateOdds(target);};
+		attack.onfocus = function(){this.select();};
+		attack.onmouseup = function(){return false;};
 
 		defense = document.createElement('input');
 		defense.id = target+'_def';
 		defense.setAttribute('type', 'text');
 		defense.onchange = function(){ogreOdds.calculateOdds(target);};
+		defense.onfocus = function(){this.select();};
+		defense.onmouseup = function(){return false;};
 
 		odds = document.createElement('input');
 		odds.id = target+'_odds';
