@@ -67,6 +67,9 @@ var ogreCompany = {
 			newOgre.appendChild(weapDiv);
 		}
 
+		//Tread boxes
+		newOgre.appendChild(this._makeTreadBoxes(ogreId, ogreTypes[type].movement));
+
 		document.body.appendChild(newOgre);
 	},
 
@@ -105,11 +108,47 @@ var ogreCompany = {
 			}
 			var box = newElm('input');
 			box.setAttribute('type', 'checkbox');
+			box.setAttribute('class', 'ogreWeaponBox');
 			box.id = container.id+'_'+i;
 			subContainer.appendChild(box);
 		}
 
 		return container;
+	},
+
+	_makeTreadBoxes : function(ogreId, movement) {
+		var speed = movement.base;
+		var treads = movement.tread;
+
+		var treadInc = treads / speed;
+
+		var treadContainer = newElm('div');
+		treadContainer.id = ogreId+'_treads';
+		treadContainer.appendChild(this._makeLabel(ogreId+'_treads_label', treads+' Tread Units', 'ogreTreadsLabel'));
+		var subContainer;
+
+		for(var i = speed; i > 0; i--)
+		{
+			var speedContainer = newElm('div');
+			speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+i, i, 'ogreSpeedLabel'));
+			for(var j = 0; j < treadInc; j++)
+			{
+				if(0 == j%5)
+				{
+					subContainer = newElm('div');
+					subContainer.setAttribute('class', 'ogreTreadSubContainer');
+					speedContainer.appendChild(subContainer);
+				}
+				var box = newElm('input');
+				box.setAttribute('type', 'checkbox');
+				box.setAttribute('class', 'ogreTreadBox');
+				box.id = treadContainer.id+'_'+j;
+				subContainer.appendChild(box);
+			}
+			treadContainer.appendChild(speedContainer);
+		}
+
+		return treadContainer;
 	}
 }
 
