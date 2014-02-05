@@ -226,6 +226,69 @@ var ogreTypes =
 			}
 		}
 	},
+	"vulcan":{
+		"name":"Vulcan",
+		"cost":25,
+		"size":7,
+		"movement":{
+			"base":4,
+			"tread":48
+		},
+		"armament":{
+			"arm":{
+				"stats":{
+					"name":"Manipulator Arms",
+					"def":2
+				},
+				"count":2
+			},
+			"sb":{
+				"stats":ogreArmaments.sb,
+				"count":2
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":6
+			}
+		},
+		"special":"TBD"
+	},
+	"ninja":{
+		"name":"ninja",
+		"cost":25,
+		"size":7,
+		"movement":{
+			"base":4,
+			"tread":40
+		},
+		"armament":{
+			"mb":{
+				"stats":ogreArmaments.mb,
+				"count":1
+			},
+			"sb":{
+				"stats":ogreArmaments.sb,
+				"count":2
+			},
+			"msl":{
+				"stats":ogreArmaments.msl,
+				"count":2
+			},
+			"rack":{
+				"stats":ogreArmaments.rack,
+				"count":1
+			},
+			"intmsl":{
+				"stats":ogreArmaments.intmsl,
+				"count":4
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":8
+			}
+		},
+		"special":"All rolls to hit the Ninja are at -1"
+	},
 	"pikeman":{
 		"name":"Pikeman",
 		"cost":4,
@@ -245,7 +308,7 @@ var ogreTypes =
 			}
 		}
 	},
-	"legionnaier":{
+	"legionnaire":{
 		"name":"Legionnaire",
 		"cost":17,
 		"size":7,
