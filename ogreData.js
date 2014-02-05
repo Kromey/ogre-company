@@ -254,7 +254,7 @@ var ogreTypes =
 		"special":"TBD"
 	},
 	"ninja":{
-		"name":"ninja",
+		"name":"Ninja",
 		"cost":25,
 		"size":7,
 		"movement":{
