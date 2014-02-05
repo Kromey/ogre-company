@@ -17,6 +17,16 @@ var ogreArmaments = {
 		"rng":5,
 		"def":3
 	},
+	"rack":{
+		"name":"Missile Rack",
+		"def":4
+	},
+	"intmsl":{
+		"name":"Int. Missiles",
+		"atk":6,
+		"rng":5,
+		"def":null
+	},
 	"ap":{
 		"name":"Antipersonnel",
 		"atk":1,
@@ -47,6 +57,37 @@ var ogreTypes =
 			"msl":{
 				"stats":ogreArmaments.msl,
 				"count":2
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":8
+			}
+		}
+	},
+	"mkiv":{
+		"name":"Mark IV",
+		"cost":25,
+		"size":8,
+		"movement":{
+			"base":4,
+			"tread":56
+		},
+		"armament":{
+			"mb":{
+				"stats":ogreArmaments.mb,
+				"count":1
+			},
+			"sb":{
+				"stats":ogreArmaments.sb,
+				"count":2
+			},
+			"rack":{
+				"stats":ogreArmaments.rack,
+				"count":3
+			},
+			"intmsl":{
+				"stats":ogreArmaments.intmsl,
+				"count":15
 			},
 			"ap":{
 				"stats":ogreArmaments.ap,
