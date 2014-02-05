@@ -80,6 +80,12 @@ var ogreCompany = {
 		//Tread boxes
 		newOgre.appendChild(this._makeTreadBoxes(ogreId, ogreTypes[type].movement));
 
+		//Special rules, if any
+		if(null !== ogreTypes[type].special && undefined !== ogreTypes[type].special)
+		{
+			newOgre.appendChild(this._makeLabel(ogreId, ogreTypes[type].special, 'ogreSpecialRules'));
+		}
+
 		document.body.appendChild(newOgre);
 	},
 
