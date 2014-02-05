@@ -37,6 +37,48 @@ var ogreArmaments = {
 
 var ogreTypes =
 {
+	"mki":{
+		"name":"Mark I",
+		"cost":4,
+		"size":5,
+		"movement":{
+			"base":3,
+			"tread":18
+		},
+		"armament":{
+			"mb":{
+				"stats":ogreArmaments.mb,
+				"count":1
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":4
+			}
+		}
+	},
+	"mkii":{
+		"name":"Mark II",
+		"cost":8,
+		"size":6,
+		"movement":{
+			"base":3,
+			"tread":30
+		},
+		"armament":{
+			"mb":{
+				"stats":ogreArmaments.mb,
+				"count":1
+			},
+			"sb":{
+				"stats":ogreArmaments.sb,
+				"count":2
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":6
+			}
+		}
+	},
 	"mkiii":{
 		"name":"Mark III",
 		"cost":17,
@@ -57,6 +99,33 @@ var ogreTypes =
 			"msl":{
 				"stats":ogreArmaments.msl,
 				"count":2
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":8
+			}
+		}
+	},
+	"mkiiib":{
+		"name":"Mark III-B",
+		"cost":20,
+		"size":7,
+		"movement":{
+			"base":3,
+			"tread":48
+		},
+		"armament":{
+			"mb":{
+				"stats":ogreArmaments.mb,
+				"count":2
+			},
+			"sb":{
+				"stats":ogreArmaments.sb,
+				"count":4
+			},
+			"msl":{
+				"stats":ogreArmaments.msl,
+				"count":4
 			},
 			"ap":{
 				"stats":ogreArmaments.ap,
@@ -119,6 +188,41 @@ var ogreTypes =
 			"ap":{
 				"stats":ogreArmaments.ap,
 				"count":12
+			}
+		}
+	},
+	"mkvi":{
+		"name":"Mark VI",
+		"cost":40,
+		"size":9,
+		"movement":{
+			"base":3,
+			"tread":72
+		},
+		"armament":{
+			"mb":{
+				"stats":ogreArmaments.mb,
+				"count":3
+			},
+			"sb":{
+				"stats":ogreArmaments.sb,
+				"count":6
+			},
+			"msl":{
+				"stats":ogreArmaments.msl,
+				"count":6
+			},
+			"rack":{
+				"stats":ogreArmaments.rack,
+				"count":3
+			},
+			"intmsl":{
+				"stats":ogreArmaments.intmsl,
+				"count":12
+			},
+			"ap":{
+				"stats":ogreArmaments.ap,
+				"count":16
 			}
 		}
 	}
