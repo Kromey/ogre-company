@@ -58,9 +58,18 @@ var ogreCompany = {
 			//Label for the weapon's name
 			weapDiv.appendChild(this._makeWeapLabel(ogreId, weapType, 'name', weap.stats.name));
 			//Make labels for Atk, Rng, and Def
-			weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'atk', 'Atk: '+weap.stats.atk));
-			weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'rng', 'Rng: '+weap.stats.rng));
-			weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'def', 'Def: '+weap.stats.def));
+			if(null !== weap.stats.atk)
+			{
+				weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'atk', 'Atk: '+weap.stats.atk));
+			}
+			if(null !== weap.stats.rng)
+			{
+				weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'rng', 'Rng: '+weap.stats.rng));
+			}
+			if(null !== weap.stats.def)
+			{
+				weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'def', 'Def: '+weap.stats.def));
+			}
 
 			//Now make checkboxes for each gun
 			weapDiv.appendChild(this._makeWeapBoxes(ogreId, weapType, weap.count));
