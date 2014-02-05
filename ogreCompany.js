@@ -58,15 +58,15 @@ var ogreCompany = {
 			//Label for the weapon's name
 			weapDiv.appendChild(this._makeWeapLabel(ogreId, weapType, 'name', weap.stats.name));
 			//Make labels for Atk, Rng, and Def
-			if(null !== weap.stats.atk)
+			if(null !== weap.stats.atk && undefined !== weap.stats.atk)
 			{
 				weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'atk', 'Atk: '+weap.stats.atk));
 			}
-			if(null !== weap.stats.rng)
+			if(null !== weap.stats.rng && undefined !== weap.stats.rng)
 			{
 				weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'rng', 'Rng: '+weap.stats.rng));
 			}
-			if(null !== weap.stats.def)
+			if(null !== weap.stats.def && undefined !== weap.stats.def)
 			{
 				weapDiv.appendChild(this._makeWeapAttrLabel(ogreId, weapType, 'def', 'Def: '+weap.stats.def));
 			}

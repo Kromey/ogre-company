@@ -19,8 +19,6 @@ var ogreArmaments = {
 	},
 	"rack":{
 		"name":"Missile Rack",
-		"atk":null,
-		"rng":null,
 		"def":4
 	},
 	"intmsl":{
