@@ -39,6 +39,13 @@ var ogreCompany = {
 		newOgre.id = ogreId;
 		newOgre.setAttribute('class', 'ogre');
 
+		//Ogre Close button
+		var delOgre = newElm('div');
+		delOgre.setAttribute('class', 'ogreDel');
+		delOgre.appendChild(textNode('X'));
+		delOgre.onclick = function(){destroyNode(this.parentNode);};
+		newOgre.appendChild(delOgre);
+
 		//Give ourselves a label to identify the Ogre's type
 		newOgre.appendChild(this._makeLabel(ogreId+'_label', ogreTypes[type].name, 'ogreTypeLabel'));
 
