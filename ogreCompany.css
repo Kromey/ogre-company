@@ -24,6 +24,15 @@
 	background-color: #E6E6E6;
 }
 
+.ogreDel
+{
+	display: float;
+	float: right;
+	color: #A30000;
+	font-weight: bold;
+	cursor: pointer;
+}
+
 .ogreName
 {
 	font-weight: bold;
