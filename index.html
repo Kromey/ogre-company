@@ -2,12 +2,29 @@
 <head>
 <title>Ogre Company</title>
 <link rel="stylesheet" type="text/css" href="ogreCompany.css" />
+<link rel="stylesheet" type="text/css" href="ogreOdds.css" />
 <script type="text/javascript" src="ogreCommon.js"></script>
 <script type="text/javascript" src="ogreData.js"></script>
 <script type="text/javascript" src="ogreOdds.js"></script>
 <script type="text/javascript" src="ogreCompany.js"></script>
+<style type="text/css">
+#ogrePanel
+{
+	display: float;
+	float: left;
+	text-align: center;
+}
+#ogreContainer
+{
+	margin-left: 8em;
+}
+</style>
 </head>
-<body onload="ogreOdds.init('ogreOdds');ogreCompany.init();">
-	<div id="ogreOdds"></div>
+<body onload="ogreOdds.init('ogreOdds');ogreCompany.init('newOgres','ogreContainer');">
+	<div id="ogrePanel">
+		<div id="newOgres"></div>
+		<div id="ogreOdds"></div>
+	</div>
+	<div id="ogreContainer"></div>
 </body>
 </html>

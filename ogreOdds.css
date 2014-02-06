@@ -1,0 +1,16 @@
+#ogreOdds
+{
+	display: inline-block;
+	text-align: right;
+	width: 6em;
+	padding: 0.25em;
+	margin: 0.1em;
+	border: 1px solid black;
+	background-color: #D6AD33;
+}
+#ogreOdds input
+{
+	width: 2em;
+	background-color: #E2C670;
+}
+

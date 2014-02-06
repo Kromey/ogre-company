@@ -1,27 +1,6 @@
-body
-{
-}
-
-#ogreOdds
-{
-	display: float;
-	float: right;
-	text-align: right;
-	padding: 0.25em;
-	margin: 0.1em;
-	border: 1px solid black;
-	background-color: #D6AD33;
-}
-#ogreOdds input
-{
-	width: 2em;
-	background-color: #E2C670;
-}
-
 #newOgreDiv
 {
-	display: float;
-	float: left;
+	display: inline-block;
 	text-align: center;
 	padding: 0.2em;
 	margin: 0.1em;
@@ -36,8 +15,8 @@ body
 
 .ogre
 {
-	display: float;
-	float: left;
+	display: inline-block;
+	vertical-align: top;
 	width: 250px;
 	padding: 2px;
 	margin: 1px;

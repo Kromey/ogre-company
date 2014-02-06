@@ -1,7 +1,8 @@
 var ogreCompany = {
 	ogreCounter : 0,
+	ogreContainer : null,
 
-	init : function() {
+	init : function(panelContainer, ogreContainer) {
 		var newOgre = newElm('div');
 		newOgre.id = 'newOgreDiv';
 		newOgre.appendChild(textNode("Choose an Ogre:"));
@@ -18,7 +19,9 @@ var ogreCompany = {
 			newOgre.appendChild(newOgreType);
 		}
 
-		document.body.appendChild(newOgre);
+		getId(panelContainer).appendChild(newOgre);
+
+		this.ogreContainer = getId(ogreContainer);
 	},
 
 	addOgre : function(type) {
@@ -88,7 +91,7 @@ var ogreCompany = {
 			newOgre.appendChild(this._makeLabel(ogreId, ogreTypes[type].special, 'ogreSpecialRules'));
 		}
 
-		document.body.appendChild(newOgre);
+		getId('ogreContainer').appendChild(newOgre);
 	},
 
 	_makeLabel : function(id, val, style) {
