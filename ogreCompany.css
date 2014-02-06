@@ -47,16 +47,29 @@ body
 
 .ogreName
 {
+	/*background-color: #BFBFBF;*/
+	font-weight: bold;
+	color: #A30000;
+	font-size: 1.5em;
+	width: 250px;
+	border: none;
+	background-color: transparent;
+}
+.ogreName:focus
+{
 	background-color: #BFBFBF;
-	display: float;
-	float: right;
 }
 
 .ogreTypeLabel
 {
-	font-weight: bold;
+	font-style: italic;
 	color: #A30000;
-	font-size: 1.5em;
+	font-size: 0.9em;
+	display: float;
+	float: right;
+	height: 2px;
+	overflow: show;
+	z-index: 5;
 }
 
 .ogreWeaponLabel, .ogreTreadsLabel

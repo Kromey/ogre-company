@@ -44,6 +44,8 @@ var ogreCompany = {
 		ogreName.id = ogreId+'_name';
 		ogreName.setAttribute('type', 'text');
 		ogreName.setAttribute('class', 'ogreName');
+		ogreName.onfocus = function(){this.select();}; //Select text when focused
+		ogreName.onmouseup = function(){return false;}; //Prevent the click deselecting the text
 		ogreName.value = ogreTypes[type].name;
 		newOgre.appendChild(ogreName);
 
