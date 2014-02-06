@@ -91,6 +91,14 @@
 	margin: 0px;
 }
 
+.ogreAttributeLabel
+{
+	display: inline-block;
+	color: #A30000;
+	margin-right: 5px;
+	font-style: italic;
+	font-size: 0.9em;
+}
 
 .ogreSpecialRules
 {
