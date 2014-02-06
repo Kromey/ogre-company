@@ -52,6 +52,9 @@ var ogreCompany = {
 		ogreName.value = ogreTypes[type].name;
 		newOgre.appendChild(ogreName);
 
+		//Ogre cost and size
+		newOgre.appendChild(this._makeLabel(ogreId, ogreTypes[type].cost+' AU; Size '+ogreTypes[type].size, 'ogreAttributeLabel'));
+
 		//Iterate through the Ogre's guns and give us stats for each
 		for(var weapType in ogreTypes[type].armament)
 		{
