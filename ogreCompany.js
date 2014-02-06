@@ -39,8 +39,12 @@ var ogreCompany = {
 		newOgre.id = ogreId;
 		newOgre.setAttribute('class', 'ogre');
 
-		//Give ourselves a label to identify the Ogre's type
-		newOgre.appendChild(this._makeLabel(ogreId+'_label', ogreTypes[type].name, 'ogreTypeLabel'));
+		//Ogre Close button
+		var delOgre = newElm('div');
+		delOgre.setAttribute('class', 'ogreDel');
+		delOgre.appendChild(textNode('X'));
+		delOgre.onclick = function(){destroyNode(this.parentNode);};
+		newOgre.appendChild(delOgre);
 
 		//Give the player the ability to name their Ogre
 		var ogreName = newElm('input');
@@ -54,6 +58,9 @@ var ogreCompany = {
 
 		//Ogre cost and size
 		newOgre.appendChild(this._makeLabel(ogreId, ogreTypes[type].cost+' AU; Size '+ogreTypes[type].size, 'ogreAttributeLabel'));
+
+		//Give ourselves a label to identify the Ogre's type
+		newOgre.appendChild(this._makeLabel(ogreId+'_label', ogreTypes[type].name, 'ogreTypeLabel'));
 
 		//Iterate through the Ogre's guns and give us stats for each
 		for(var weapType in ogreTypes[type].armament)

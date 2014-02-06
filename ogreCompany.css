@@ -24,17 +24,32 @@
 	background-color: #E6E6E6;
 }
 
+.ogreDel
+{
+	display: float;
+	float: right;
+	color: #A30000;
+	font-weight: bold;
+	cursor: pointer;
+	width: 1em;
+	height: 1em;
+	margin-bottom: -1em;
+	text-align: right;
+	vertical-align: top;
+}
+
 .ogreName
 {
 	font-weight: bold;
 	color: #A30000;
 	font-size: 1.5em;
-	width: 250px;
+	width: 200px;
 	border: none;
 	background-color: transparent;
 }
 .ogreName:focus
 {
+	width: 100%;
 	background-color: #BFBFBF;
 }
 
@@ -45,9 +60,6 @@
 	font-size: 0.9em;
 	display: float;
 	float: right;
-	height: 2px;
-	overflow: show;
-	z-index: 5;
 }
 
 .ogreWeaponLabel, .ogreTreadsLabel
