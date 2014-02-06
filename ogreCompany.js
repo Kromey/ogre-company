@@ -159,27 +159,31 @@ var ogreCompany = {
 		treadContainer.appendChild(this._makeLabel(ogreId+'_treads_base', 'Move starts at '+speed, 'ogreBaseSpeedLabel'));
 		var subContainer;
 
-		for(var i = speed; i > 0; i--)
+		for(var i = 0; i < treads; i++)
 		{
-			var speedContainer = newElm('div');
-			speedContainer.setAttribute('class', 'ogreSpeedContainer');
-			for(var j = 0; j < treadInc; j++)
+			if(0 == i%treadInc)
 			{
-				if(0 == j%5)
-				{
-					subContainer = newElm('div');
-					subContainer.setAttribute('class', 'ogreTreadSubContainer');
-					speedContainer.appendChild(subContainer);
-				}
-				var box = newElm('input');
-				box.id = treadContainer.id+'_'+j;
-				box.setAttribute('type', 'checkbox');
-				box.setAttribute('class', 'ogreTreadBox');
-				box.onclick = function(){ogreCompany._boxClicked(this);};
-				subContainer.appendChild(box);
+				console.log('Tread '+i+' is modulo 0 with treadInc '+treadInc);
+				//We've reached the threshold of a tread increment, adjust speed
+				var speedContainer = newElm('div');
+				speedContainer.setAttribute('class', 'ogreSpeedContainer');
+				speed--;
+				speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+speed, speed, 'ogreSpeedLabel'));
+				treadContainer.appendChild(speedContainer);
 			}
-			speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+i, i-1, 'ogreSpeedLabel'));
-			treadContainer.appendChild(speedContainer);
+			if(0 == i%5)
+			{
+				console.log('Tread '+i+' is modulo 0 with 5');
+				subContainer = newElm('div');
+				subContainer.setAttribute('class', 'ogreTreadSubContainer');
+				speedContainer.appendChild(subContainer);
+			}
+			var box = newElm('input');
+			box.id = treadContainer.id+'_'+i;
+			box.setAttribute('type', 'checkbox');
+			box.setAttribute('class', 'ogreTreadBox');
+			box.onclick = function(){ogreCompany._boxClicked(this);};
+			subContainer.appendChild(box);
 		}
 
 		return treadContainer;
