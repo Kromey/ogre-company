@@ -172,9 +172,10 @@ var ogreCompany = {
 					speedContainer.appendChild(subContainer);
 				}
 				var box = newElm('input');
+				box.id = treadContainer.id+'_'+j;
 				box.setAttribute('type', 'checkbox');
 				box.setAttribute('class', 'ogreTreadBox');
-				box.id = treadContainer.id+'_'+j;
+				box.onclick = function(){ogreCompany._boxClicked(this);};
 				subContainer.appendChild(box);
 			}
 			speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+i, i-1, 'ogreSpeedLabel'));
@@ -182,6 +183,38 @@ var ogreCompany = {
 		}
 
 		return treadContainer;
+	},
+
+	_boxClicked : function(obj) {
+		//Find out if we're checking or unchecking this box
+		var checking = obj.checked;
+		//Now undo it -- don't worry, we'll check/uncheck the appropriate box later
+		obj.checked = !obj.checked;
+
+		treadsId = obj.parentNode.parentNode.parentNode.id;
+		var i = 0;
+		var id = null;
+		while(true)
+		{
+			id = treadsId+'_'+i;
+			if(getId(id).checked)
+			{
+				i++;
+			} else {
+				break;
+			}
+		}
+
+		if(!checking)
+		{
+			i--;
+			id = treadsId+'_'+i;
+		}
+
+		if(getId(id))
+		{
+			getId(id).checked = checking;
+		}
 	}
 }
 
