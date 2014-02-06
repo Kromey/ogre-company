@@ -7,7 +7,11 @@
 <script type="text/javascript" src="ogreOdds.js"></script>
 <script type="text/javascript" src="ogreCompany.js"></script>
 </head>
-<body onload="ogreOdds.init('ogreOdds');ogreCompany.init();">
-	<div id="ogreOdds"></div>
+<body onload="ogreOdds.init('ogreOdds');ogreCompany.init('newOgres','ogreContainer');">
+	<div id="ogrePanel">
+		<div id="newOgres"></div>
+		<div id="ogreOdds"></div>
+	</div>
+	<div id="ogreContainer"></div>
 </body>
 </html>
