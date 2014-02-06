@@ -37,6 +37,34 @@ var ogreArmaments = {
 
 var ogreTypes =
 {
+	"shvy":{
+		"name":"Super Heavy",
+		"cost":3,
+		"size":5,
+		"movement":{
+			"base":3,
+			"tread":18
+		},
+		"armament":{
+			"gun":{
+				"stats":{
+					"name":"Guns",
+					"atk":3,
+					"rng":3
+				},
+				"count":2
+			},
+			"ap":{
+				"stats":{
+					"name":"Antipersonnel",
+					"atk":1,
+					"rng":1
+				},
+				"count":2
+			}
+		},
+		"special":"See rule 13.07."
+	},
 	"mki":{
 		"name":"Mark I",
 		"cost":4,
