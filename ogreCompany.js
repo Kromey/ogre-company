@@ -138,9 +138,10 @@ var ogreCompany = {
 				container.appendChild(subContainer);
 			}
 			var box = newElm('input');
+			box.id = container.id+'_'+i;
 			box.setAttribute('type', 'checkbox');
 			box.setAttribute('class', 'ogreWeaponBox');
-			box.id = container.id+'_'+i;
+			box.onclick = function(){ogreCompany._boxClicked(this);};
 			subContainer.appendChild(box);
 		}
 
@@ -166,7 +167,7 @@ var ogreCompany = {
 				var speedContainer = newElm('div');
 				speedContainer.setAttribute('class', 'ogreSpeedContainer');
 				speed--;
-				speedContainer.appendChild(this._makeLabel(ogreId+'_treads_'+speed, speed, 'ogreSpeedLabel'));
+				speedContainer.appendChild(this._makeLabel(ogreId+'_speed_'+speed, speed, 'ogreSpeedLabel'));
 				treadContainer.appendChild(speedContainer);
 			}
 			//Need to group by 5s, but also reset with each treadInc
@@ -193,12 +194,20 @@ var ogreCompany = {
 		//Now undo it -- don't worry, we'll check/uncheck the appropriate box later
 		obj.checked = !obj.checked;
 
-		treadsId = obj.parentNode.parentNode.parentNode.id;
+		var objParent = obj.parentNode;
+		var containerId = null;
+		while(!(containerId = objParent.id) || !getId(containerId+'_0') || 'checkbox' != getId(containerId+'_0').getAttribute('type'))
+		{
+			objParent = objParent.parentNode;
+		}
+		console.log(containerId);
+		console.log(getId(containerId+'_0'));
+		//containerId = obj.parentNode.parentNode.parentNode.id;
 		var i = 0;
 		var id = null;
 		while(true)
 		{
-			id = treadsId+'_'+i;
+			id = containerId+'_'+i;
 			if(getId(id).checked)
 			{
 				i++;
@@ -210,13 +219,16 @@ var ogreCompany = {
 		if(!checking)
 		{
 			i--;
-			id = treadsId+'_'+i;
+			id = containerId+'_'+i;
 		}
 
 		if(getId(id))
 		{
 			getId(id).checked = checking;
 		}
+
+		//Now we return the number of boxes that are checked
+		return (i+(checking?1:0));
 	}
 }
 
