@@ -181,7 +181,9 @@ var ogreCompany = {
 			box.id = treadContainer.id+'_'+i;
 			box.setAttribute('type', 'checkbox');
 			box.setAttribute('class', 'ogreTreadBox');
-			box.onclick = function(){ogreCompany._boxClicked(this);};
+			//box.onclick = function(){ogreCompany._boxClicked(this);};
+			that = this;
+			box.onclick = function(){alert(that+'; '+this);};
 			subContainer.appendChild(box);
 		}
 
