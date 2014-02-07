@@ -229,6 +229,9 @@ var ogreCompany = {
 
 		//Now we return the number of boxes that are checked
 		return (i+(checking?1:0));
+	},
+
+	_adjustSpeed : function(boxObj, treadsDestroyed) {
 	}
 }
 
