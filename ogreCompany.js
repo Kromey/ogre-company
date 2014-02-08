@@ -9,14 +9,8 @@ var ogreCompany = {
 
 		for(var type in ogreTypes)
 		{
-			var newOgreType = newElm('button');
-			newOgreType.id = 'new_'+type;
-			newOgreType.value = type;
-			newOgreType.appendChild(textNode(ogreTypes[type].name));
-			newOgreType.onclick = function(){ogreCompany.addOgre(this.value);};
-
 			newOgre.appendChild(newElm('br'));
-			newOgre.appendChild(newOgreType);
+			newOgre.appendChild(this.makeNewOgreButton(type));
 		}
 
 		getId(panelContainer).appendChild(newOgre);
@@ -24,13 +18,19 @@ var ogreCompany = {
 		this.ogreContainer = getId(ogreContainer);
 	},
 
-	addOgre : function(type) {
-		if(ogreTypes[type] == undefined)
-		{
-			console.log("Unknown Ogre type: "+type);
-			return false;
-		}
+	makeNewOgreButton : function(ogreType) {
+			var ogreStats = ogreTypes[ogreType];
+			var newOgreType = newElm('button');
+			newOgreType.id = 'new_'+ogreType;
+			newOgreType.value = ogreType;
+			newOgreType.appendChild(textNode(ogreStats.name));
+			//newOgreType.onclick = function(){ogreCompany.addOgre(this.value);};
+			newOgreType.onclick = function(){new ogre(ogreStats);};
 
+			return newOgreType;
+	},
+
+	addOgre : function(ogreStats) {
 		//Give us the new Ogre's ID, and increment our counter
 		var ogreId = 'ogre_'+this.ogreCounter++;
 
@@ -53,19 +53,19 @@ var ogreCompany = {
 		ogreName.setAttribute('class', 'ogreName');
 		ogreName.onfocus = function(){this.select();}; //Select text when focused
 		ogreName.onmouseup = function(){return false;}; //Prevent the click deselecting the text
-		ogreName.value = ogreTypes[type].name;
+		ogreName.value = ogreStats.name;
 		newOgre.appendChild(ogreName);
 
 		//Ogre cost and size
-		newOgre.appendChild(this._makeLabel(ogreId, ogreTypes[type].cost+' AU; Size '+ogreTypes[type].size, 'ogreAttributeLabel'));
+		newOgre.appendChild(this._makeLabel(ogreId, ogreStats.cost+' AU; Size '+ogreStats.size, 'ogreAttributeLabel'));
 
 		//Give ourselves a label to identify the Ogre's type
-		newOgre.appendChild(this._makeLabel(ogreId+'_label', ogreTypes[type].name, 'ogreTypeLabel'));
+		newOgre.appendChild(this._makeLabel(ogreId+'_label', ogreStats.name, 'ogreTypeLabel'));
 
 		//Iterate through the Ogre's guns and give us stats for each
-		for(var weapType in ogreTypes[type].armament)
+		for(var weapType in ogreStats.armament)
 		{
-			var weap = ogreTypes[type].armament[weapType];
+			var weap = ogreStats.armament[weapType];
 
 			var weapDiv = newElm('div');
 			weapDiv.id = ogreId+'_'+weapType+'_div';
@@ -93,15 +93,17 @@ var ogreCompany = {
 		}
 
 		//Tread boxes
-		newOgre.appendChild(this._makeTreadBoxes(ogreId, ogreTypes[type].movement));
+		newOgre.appendChild(this._makeTreadBoxes(ogreId, ogreStats.movement));
 
 		//Special rules, if any
-		if(null !== ogreTypes[type].special && undefined !== ogreTypes[type].special)
+		if(null !== ogreStats.special && undefined !== ogreStats.special)
 		{
-			newOgre.appendChild(this._makeLabel(ogreId, ogreTypes[type].special, 'ogreSpecialRules'));
+			newOgre.appendChild(this._makeLabel(ogreId, ogreStats.special, 'ogreSpecialRules'));
 		}
 
 		getId('ogreContainer').appendChild(newOgre);
+
+		return ogreId;
 	},
 
 	_makeLabel : function(id, val, style) {
@@ -181,9 +183,7 @@ var ogreCompany = {
 			box.id = treadContainer.id+'_'+i;
 			box.setAttribute('type', 'checkbox');
 			box.setAttribute('class', 'ogreTreadBox');
-			//box.onclick = function(){ogreCompany._boxClicked(this);};
-			that = this;
-			box.onclick = function(){alert(that+'; '+this);};
+			box.onclick = function(){ogreCompany._boxClicked(this);};
 			subContainer.appendChild(box);
 		}
 
@@ -202,9 +202,6 @@ var ogreCompany = {
 		{
 			objParent = objParent.parentNode;
 		}
-		console.log(containerId);
-		console.log(getId(containerId+'_0'));
-		//containerId = obj.parentNode.parentNode.parentNode.id;
 		var i = 0;
 		var id = null;
 		while(true)
@@ -235,5 +232,13 @@ var ogreCompany = {
 
 	_adjustSpeed : function(boxObj, treadsDestroyed) {
 	}
+}
+
+function ogre(ogreData)
+{
+	this.baseStats = ogreData;
+	this.id = ogreCompany.addOgre(ogreData);
+
+	console.log("Created new Ogre "+this.baseStats.name+" with id "+this.id);
 }
 
